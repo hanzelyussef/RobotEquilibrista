@@ -29,10 +29,7 @@ senseLevel = mpu6050(0x68)
 pid = pidControl.PID(kp, ki, kd, 1)
 pid.errorLimits(-100,100)
 pid.outLimits(-100,100)
-#pid = PID.PID(kp, ki, kd)
-#pid.SetPoint = targetT
-#pid.setSampleTime(0.001)
-#pid.setWindup(30)
+
 
 timePrev = time.time()
 
