@@ -1,0 +1,20 @@
+#this file must me copied in /etc/systemd/system as root with "sudo cp robot.service /etc/systemd/system/robot.service"
+#Once the file has been copied, it must inform to systemd that a new service has been added "sudo systemctl daemon-reload"
+#start on boot daemon "sudo systemctl enable robot.service"
+#start the daemon "sudo systemctl start robot.service"
+#to stop the daemon "sudo systemctl stop robot.service"
+
+[Unit]
+Description=Self Balancing Robot
+After=network.target
+
+[Service]
+ExecStart=python3 -u robot.py
+WorkingDirectory=/home/Robot/Balancing
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=diego
+
+[Install]
+WantedBy=multi-user.target
